@@ -43,7 +43,7 @@ const Cart = () => {
         {cart.map((item) => (
           <div
             key={item.id}
-            className="flex flex-wrap items-center border p-2 gap-4 sm:gap-6 rounded-lg hovver:bg-[#e0e0e0] hover:shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] duration-300"
+            className="flex flex-wrap items-center border p-2 gap-4 sm:gap-6 rounded-lg hovver:bg-[#e0e0e0] hover:shadow-[10px_10px_10px_#bebebe,-10px_-10px_10px_#ffffff] duration-300"
           >
             {/* Image */}
             <div className="w-12 sm:w-16">

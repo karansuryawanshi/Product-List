@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [cartCount, setCartCount] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -15,9 +18,10 @@ const Header = () => {
       <Link to="/" className="font-bold text-3xl">
         Product Store
       </Link>
-      <Link
-        to="https://product-list-eight-beige.vercel.app/cart"
-        className="relative"
+      <p
+        // to="https://product-list-eight-beige.vercel.app/cart"
+        onClick={() => navigate("/cart")}
+        className="relative cursor-pointer"
       >
         <p className="pr-3 flex mt-3 text-center gap-2">
           <ShoppingCart />
@@ -25,7 +29,7 @@ const Header = () => {
         <span className="absolute top-0 right-10 bg-red-500 text-white text-xs px-2 rounded-full">
           {cartCount}
         </span>
-      </Link>
+      </p>
     </header>
   );
 };

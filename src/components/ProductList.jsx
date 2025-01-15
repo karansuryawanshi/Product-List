@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 // const API_URL = "https://dummyjson.com/products";
@@ -10,6 +11,8 @@ const ProductList = ({ updateCartCount }) => {
     const cleanedLink = imageLink.replace(/["[\]]/g, "");
     return cleanedLink;
   };
+
+  const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -148,12 +151,13 @@ const ProductList = ({ updateCartCount }) => {
             <p>Description: {product.description.slice(0, 25)}...</p>
             <p>category: {product.category.name}</p>
             {/* <p>Category: {product.category}</p> */}
-            <Link
-              to={`https://product-list-eight-beige.vercel.app/product/${product.id}`}
-              className="text-blue-500"
+            <p
+              onClick={() => navigate("/product/" + product.id)}
+              // to={`https://product-list-eight-beige.vercel.app/product/${product.id}`}
+              className="text-blue-500 cursor-pointer"
             >
               View Details
-            </Link>
+            </p>
           </div>
         ))}
       </div>
