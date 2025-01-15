@@ -15,7 +15,10 @@ const Header = () => {
       <Link to="/" className="font-bold text-3xl">
         Product Store
       </Link>
-      <Link to="/cart" className="relative">
+      <Link
+        to="https://product-list-eight-beige.vercel.app/cart"
+        className="relative"
+      >
         <p className="pr-3 flex mt-3 text-center gap-2">
           <ShoppingCart />
         </p>

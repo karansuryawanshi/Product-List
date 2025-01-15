@@ -19,7 +19,7 @@ const ProductList = ({ updateCartCount }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top of the page
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -131,7 +131,7 @@ const ProductList = ({ updateCartCount }) => {
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className="hover:scale-105 transition-transform duration-300 border p-4 rounded-[10px] hover:border-2 hover:border-white bg-[#e0e0e0] hover:shadow-[5px_5px_30px_#bebebe,-5px_-5px_10px_#ffffff] "
+            className="hover:scale-105 transition-transform duration-300 border p-4 rounded-[10px] hover:border border-gray-500 hover:border-gray-800 bg-[#e0e0e0] hover:shadow-[5px_5px_30px_#bebebe,-5px_-5px_10px_#ffffff] "
           >
             <img
               src={product.images[0]}
@@ -148,7 +148,10 @@ const ProductList = ({ updateCartCount }) => {
             <p>Description: {product.description.slice(0, 25)}...</p>
             <p>category: {product.category.name}</p>
             {/* <p>Category: {product.category}</p> */}
-            <Link to={`/product/${product.id}`} className="text-blue-500">
+            <Link
+              to={`https://product-list-eight-beige.vercel.app/product/${product.id}`}
+              className="text-blue-500"
+            >
               View Details
             </Link>
           </div>
